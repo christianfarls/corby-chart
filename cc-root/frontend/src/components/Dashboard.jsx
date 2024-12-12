@@ -89,6 +89,13 @@ const Dashboard = () => {
     fetchDashboardData();
   }, []);
 
+  const getPlayerStatus = (winPercentage) => {
+    if (winPercentage > 70) return { label: "GOATED", color: "success" };
+    if (winPercentage > 50) return { label: "WINNING", color: "primary" };
+    if (winPercentage > 30) return { label: "MID", color: "default" };
+    return { label: "L", color: "error" };
+  };  
+
 
   if (loading) {
     return (
@@ -163,7 +170,9 @@ const Dashboard = () => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {stats.players.slice(0, 10).map((player, index) => (
+                {stats.players.slice(0, 10).map((player, index) => {
+                  const { label, color } = getPlayerStatus(player.win_percentage);
+                  return (
                   <TableRow key={player.id} hover>
                     <TableCell>{index + 1}</TableCell>
                     <TableCell>
@@ -179,12 +188,13 @@ const Dashboard = () => {
                     <TableCell align="right">
                       <Chip 
                         size="small"
-                        color={player.win_percentage > 50 ? "success" : "default"}
-                        label={player.win_percentage > 50 ? "WINNING" : "NORMAL"}
+                        color={color}
+                        label={label}
                       />
                     </TableCell>
                   </TableRow>
-                ))}
+                  )
+                })}
               </TableBody>
             </Table>
           </TableContainer>

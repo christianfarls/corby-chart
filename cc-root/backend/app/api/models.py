@@ -4,9 +4,9 @@ from datetime import datetime
 from typing import Optional
 
 class GameType(str, Enum):
-    CHESS = "chess"
-    PING_PONG = "ping_pong"
-    POOL = "pool"
+    ROCKET_LEAGUE = "rocket_league"
+    COLLEGE_FOOTBALL = "college_football"
+    SMASH_BROS = "smash_bros"
 
 class GameCreate(BaseModel):
     winner_id: int

@@ -16,9 +16,9 @@ import { Add as AddIcon } from '@mui/icons-material';
 
 // Define game types to match backend enum
 const GAME_TYPES = {
-  CHESS: "chess",
-  PING_PONG: "ping_pong",
-  POOL: "pool"
+  ROCKET_LEAGUE: "rocket_league",
+  COLLEGE_FOOTBALL: "college_football",
+  SMASH_BROS: "smash_bros"
 };
 
 const formatGameType = (type) => {

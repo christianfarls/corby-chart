@@ -35,9 +35,9 @@ CREATE INDEX idx_game_results_played_at ON game_results(played_at);
 
 -- Insert default game types
 INSERT INTO game_types (name, description) VALUES
-    ('chess', 'Classical chess game'),
-    ('ping_pong', 'Table tennis match'),
-    ('pool', 'Eight-ball pool game')
+    ('rocket_league', 'Rocket League'),
+    ('college_football', 'College Football 25'),
+    ('smash_bros', 'Super Smash Bros')
 ON CONFLICT (name) DO NOTHING;
 
 -- Create updated_at trigger function
